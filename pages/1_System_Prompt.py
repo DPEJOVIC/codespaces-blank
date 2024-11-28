@@ -8,10 +8,12 @@ st.title("System Prompt")
 client, default_prompt = initialize()
 
 
+# Clears the chat transcript (used when the system prompt is changed)
 def clear_history():
     st.session_state["chat_history"] = []
 
 
+# Text box where the user can edit the system prompt
 system_prompt_box = st.text_area(
     label = "Change the system prompt here:",
     value = st.session_state["system_prompt"],
@@ -26,6 +28,7 @@ def change_system_prompt():
 change_system_prompt()
 
 
+# Resets to the default value
 def reset_system_prompt():
     st.session_state["system_prompt"] = default_prompt
     clear_history()
